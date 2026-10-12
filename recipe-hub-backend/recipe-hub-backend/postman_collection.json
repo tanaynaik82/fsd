@@ -1,0 +1,470 @@
+{
+  "info": {
+    "name": "Recipe Hub API",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+  },
+  "variable": [
+    {
+      "key": "baseUrl",
+      "value": "http://localhost:5000"
+    }
+  ],
+  "item": [
+    {
+      "name": "Categories",
+      "item": [
+        {
+          "name": "List categories",
+          "request": {
+            "method": "GET",
+            "header": [],
+            "url": {
+              "raw": "{{baseUrl}}/api/categories",
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "path": [
+                "api",
+                "categories"
+              ]
+            }
+          }
+        },
+        {
+          "name": "Get category (with recipes)",
+          "request": {
+            "method": "GET",
+            "header": [],
+            "url": {
+              "raw": "{{baseUrl}}/api/categories/2",
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "path": [
+                "api",
+                "categories",
+                "2"
+              ]
+            }
+          }
+        },
+        {
+          "name": "Create category",
+          "request": {
+            "method": "POST",
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              }
+            ],
+            "url": {
+              "raw": "{{baseUrl}}/api/categories",
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "path": [
+                "api",
+                "categories"
+              ]
+            },
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"name\": \"Snacks\",\n  \"description\": \"Quick bites\"\n}"
+            }
+          }
+        },
+        {
+          "name": "Update category",
+          "request": {
+            "method": "PUT",
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              }
+            ],
+            "url": {
+              "raw": "{{baseUrl}}/api/categories/6",
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "path": [
+                "api",
+                "categories",
+                "6"
+              ]
+            },
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"name\": \"Snacks & Starters\",\n  \"description\": \"Quick bites\"\n}"
+            }
+          }
+        },
+        {
+          "name": "Delete category",
+          "request": {
+            "method": "DELETE",
+            "header": [],
+            "url": {
+              "raw": "{{baseUrl}}/api/categories/6",
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "path": [
+                "api",
+                "categories",
+                "6"
+              ]
+            }
+          }
+        }
+      ]
+    },
+    {
+      "name": "Ingredients",
+      "item": [
+        {
+          "name": "List ingredients",
+          "request": {
+            "method": "GET",
+            "header": [],
+            "url": {
+              "raw": "{{baseUrl}}/api/ingredients?search=to",
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "path": [
+                "api",
+                "ingredients"
+              ],
+              "query": [
+                {
+                  "key": "search",
+                  "value": "to"
+                }
+              ]
+            }
+          }
+        },
+        {
+          "name": "Get ingredient",
+          "request": {
+            "method": "GET",
+            "header": [],
+            "url": {
+              "raw": "{{baseUrl}}/api/ingredients/1",
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "path": [
+                "api",
+                "ingredients",
+                "1"
+              ]
+            }
+          }
+        },
+        {
+          "name": "Create ingredient",
+          "request": {
+            "method": "POST",
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              }
+            ],
+            "url": {
+              "raw": "{{baseUrl}}/api/ingredients",
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "path": [
+                "api",
+                "ingredients"
+              ]
+            },
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"name\": \"Cumin\",\n  \"defaultUnit\": \"g\"\n}"
+            }
+          }
+        },
+        {
+          "name": "Update ingredient",
+          "request": {
+            "method": "PUT",
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              }
+            ],
+            "url": {
+              "raw": "{{baseUrl}}/api/ingredients/21",
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "path": [
+                "api",
+                "ingredients",
+                "21"
+              ]
+            },
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"name\": \"Cumin Seeds\",\n  \"defaultUnit\": \"g\"\n}"
+            }
+          }
+        },
+        {
+          "name": "Delete ingredient",
+          "request": {
+            "method": "DELETE",
+            "header": [],
+            "url": {
+              "raw": "{{baseUrl}}/api/ingredients/21",
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "path": [
+                "api",
+                "ingredients",
+                "21"
+              ]
+            }
+          }
+        }
+      ]
+    },
+    {
+      "name": "Recipes",
+      "item": [
+        {
+          "name": "List recipes (filtered)",
+          "request": {
+            "method": "GET",
+            "header": [],
+            "url": {
+              "raw": "{{baseUrl}}/api/recipes?category=2&maxTime=45&difficulty=easy&search=pasta&ingredient=tomato&sort=prepTime&order=ASC&page=1&limit=10",
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "path": [
+                "api",
+                "recipes"
+              ],
+              "query": [
+                {
+                  "key": "category",
+                  "value": "2"
+                },
+                {
+                  "key": "maxTime",
+                  "value": "45"
+                },
+                {
+                  "key": "difficulty",
+                  "value": "easy"
+                },
+                {
+                  "key": "search",
+                  "value": "pasta"
+                },
+                {
+                  "key": "ingredient",
+                  "value": "tomato"
+                },
+                {
+                  "key": "sort",
+                  "value": "prepTime"
+                },
+                {
+                  "key": "order",
+                  "value": "ASC"
+                },
+                {
+                  "key": "page",
+                  "value": "1"
+                },
+                {
+                  "key": "limit",
+                  "value": "10"
+                }
+              ]
+            }
+          }
+        },
+        {
+          "name": "Get recipe",
+          "request": {
+            "method": "GET",
+            "header": [],
+            "url": {
+              "raw": "{{baseUrl}}/api/recipes/3",
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "path": [
+                "api",
+                "recipes",
+                "3"
+              ]
+            }
+          }
+        },
+        {
+          "name": "Create recipe",
+          "request": {
+            "method": "POST",
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              }
+            ],
+            "url": {
+              "raw": "{{baseUrl}}/api/recipes",
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "path": [
+                "api",
+                "recipes"
+              ]
+            },
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"title\": \"Lemon Rice\",\n  \"instructions\": \"Cook rice, temper with spices, mix in lemon juice.\",\n  \"prepTime\": 25,\n  \"servings\": 2,\n  \"difficulty\": \"easy\",\n  \"categoryId\": 2,\n  \"ingredients\": [\n    {\n      \"ingredientId\": 13,\n      \"quantity\": 200,\n      \"unit\": \"g\"\n    },\n    {\n      \"ingredientId\": 15,\n      \"quantity\": 2\n    }\n  ]\n}"
+            }
+          }
+        },
+        {
+          "name": "Update recipe (replaces ingredients if sent)",
+          "request": {
+            "method": "PUT",
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              }
+            ],
+            "url": {
+              "raw": "{{baseUrl}}/api/recipes/9",
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "path": [
+                "api",
+                "recipes",
+                "9"
+              ]
+            },
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"title\": \"Zesty Lemon Rice\",\n  \"prepTime\": 30\n}"
+            }
+          }
+        },
+        {
+          "name": "Add / update one ingredient",
+          "request": {
+            "method": "POST",
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              }
+            ],
+            "url": {
+              "raw": "{{baseUrl}}/api/recipes/9/ingredients",
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "path": [
+                "api",
+                "recipes",
+                "9",
+                "ingredients"
+              ]
+            },
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"ingredientId\": 16,\n  \"quantity\": 3,\n  \"unit\": \"g\"\n}"
+            }
+          }
+        },
+        {
+          "name": "Remove ingredient from recipe",
+          "request": {
+            "method": "DELETE",
+            "header": [],
+            "url": {
+              "raw": "{{baseUrl}}/api/recipes/9/ingredients/16",
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "path": [
+                "api",
+                "recipes",
+                "9",
+                "ingredients",
+                "16"
+              ]
+            }
+          }
+        },
+        {
+          "name": "Delete recipe",
+          "request": {
+            "method": "DELETE",
+            "header": [],
+            "url": {
+              "raw": "{{baseUrl}}/api/recipes/9",
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "path": [
+                "api",
+                "recipes",
+                "9"
+              ]
+            }
+          }
+        }
+      ]
+    },
+    {
+      "name": "Shopping list (raw SQL)",
+      "item": [
+        {
+          "name": "Build shopping list",
+          "request": {
+            "method": "POST",
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              }
+            ],
+            "url": {
+              "raw": "{{baseUrl}}/api/shopping-list",
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "path": [
+                "api",
+                "shopping-list"
+              ]
+            },
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"recipeIds\": [\n    1,\n    3,\n    5\n  ]\n}"
+            }
+          }
+        }
+      ]
+    }
+  ]
+}
